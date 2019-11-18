@@ -1,6 +1,0 @@
-{
-	"python.pythonPath": "/home/rafaelteixeira/.local/share/virtualenvs/punch_in_and_out-Za5wtjJn/bin/python",
-	"python.linting.pylintEnabled": true,
-	"python.linting.enabled": true,
-	"eslint.enable": false
-}
