@@ -40,11 +40,14 @@ class UserTest(unittest.TestCase):
         punch_in = datetime.now()
         punch_out = datetime.now() + timedelta(hours=1)
         punch_in2 = datetime.now() + timedelta(hours=2)
-        self.user.punches = [punch_in, punch_out, punch_in2]
+        punch_out2 = datetime.now() + timedelta(hours=4)
+        punch_in3 = datetime.now() + timedelta(hours=5)
+        self.user.punches = [punch_in, punch_out,
+                             punch_in2, punch_out2, punch_in3]
 
         hours = self.user.get_work_hours_today()
 
-        self.assertEqual(1, hours)
+        self.assertEqual(3, hours)
 
 
 if __name__ == "__main__":

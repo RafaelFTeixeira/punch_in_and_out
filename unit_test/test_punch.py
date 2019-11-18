@@ -8,3 +8,7 @@ class PunchTest(unittest.TestCase):
         punch = Punch()
 
         self.assertEqual(datetime.now().day, punch.date.day)
+
+
+if __name__ == "__main__":
+    unittest.main()

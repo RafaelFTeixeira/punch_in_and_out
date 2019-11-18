@@ -19,7 +19,7 @@ class User:
         for index in range(0, count_punches_today, 2):
             start = punchesToday[index]
             end = punchesToday[index + 1]
-            hours = end.hour - start.hour
+            hours += (end.hour - start.hour)
         return hours
 
     def get_punches_today(self):
