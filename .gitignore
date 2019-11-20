@@ -1,3 +1,13 @@
 .vscode
 Pipefile
 Pipefile.*
+
+
+## code coverage
+htmlcov
+.coverage
+.pytest_cache
+
+
+## migrations
+migrations/

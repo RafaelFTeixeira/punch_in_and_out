@@ -1,9 +1,9 @@
 from domain.punch import Punch
-from datetime import datetime
 
 
 class User:
     def __init__(self, name, email):
+        self.id = 0
         self.name = name
         self.email = email
         self.punches = []
@@ -11,22 +11,24 @@ class User:
     def to_punch(self):
         self.punches.append(Punch())
 
-    def get_work_hours_today(self):
-        punchesToday = self.get_punches_today()
-        count_punches_today = self.__count_punches(punchesToday)
+    def get_work_hours_by(self, date):
+        punches = self.get_punches_by(date)
+        count_punches = self.__count_punches(punches)
 
         hours = 0
-        for index in range(0, count_punches_today, 2):
-            start = punchesToday[index]
-            end = punchesToday[index + 1]
+        for index in range(0, count_punches, 2):
+            start = punches[index]
+            end = punches[index + 1]
             hours += (end.hour - start.hour)
         return hours
 
-    def get_punches_today(self):
-        today = datetime.now()
-        punchesToday = filter(
-            lambda punch: punch.day == today.day, self.punches)
-        return list(punchesToday)
+    def get_punches_by(self, date):
+        punches = filter(
+            lambda punch: (punch.day == date.day
+                           and punch.month == date.month
+                           and punch.year == date.year),
+            self.punches)
+        return list(punches)
 
     @staticmethod
     def __count_punches(punches):
