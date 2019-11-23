@@ -19,7 +19,7 @@ class UserTest(unittest.TestCase):
 
         self.assertEqual(user_expected, user.__dict__)
 
-    def test_should_get_work_hours_by_date(self):
+    def test_should_get_working_hours_by_date(self):
         hour_expected = 1
         punch_in = datetime(2019, 11, 19, 8, 0)
         punch_out = datetime(2019, 11, 19, 9, 0)
@@ -29,7 +29,7 @@ class UserTest(unittest.TestCase):
 
         self.assertEqual(hour_expected, hours)
 
-    def test_should_return_zero_hour_when_no_has_two_punch_clock(self):
+    def test_should_return_zero_hour_when_no_two_punch_clock(self):
         date = datetime(2019, 11, 19, 8, 0)
         self.user.punches = [date]
 
@@ -37,7 +37,7 @@ class UserTest(unittest.TestCase):
 
         self.assertEqual(0, hours)
 
-    def test_should_return_sum_hours_with_start_and_end(self):
+    def test_should_return_add_hours_with_start_and_end(self):
         punch_in = datetime(2019, 11, 19, 8, 0)
         punch_out = datetime(2019, 11, 19, 9, 0)
         punch_in2 = datetime(2019, 11, 19, 10, 0)
